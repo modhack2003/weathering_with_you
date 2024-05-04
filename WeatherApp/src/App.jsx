@@ -1,10 +1,9 @@
-import { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./App.css";
 import { IoSearch } from "react-icons/io5";
 
 // Import default icon
 import defaultIcon from "./assets/default.png";
-// Import weather icons
 import sunIcon from "./assets/sun.png";
 import cloudIcon from "./assets/cloudy.png";
 import rainIcon from "./assets/heavy-rain.png";
@@ -15,7 +14,7 @@ import Haze from "./assets/fog.png";
 
 const weatherIcons = {
   "Clear": sunIcon,
-  "Haze":Haze,
+  "Haze": Haze,
   "Clouds": cloudIcon,
   "Rain": rainIcon,
   "Drizzle": drizzleIcon,
@@ -26,6 +25,7 @@ const weatherIcons = {
 const App = () => {
   const [search, setSearch] = useState("");
   const [weatherData, setWeatherData] = useState(null);
+  const [showDefaultIcon, setShowDefaultIcon] = useState(true);
 
   const handleSearch = async (e) => {
     e.preventDefault();
@@ -40,23 +40,28 @@ const App = () => {
 
   const fetchData = async (location) => {
     try {
-      const key = "1a18911a65315eb2d4feebb6fbc0e880"
+      const key = "1a18911a65315eb2d4feebb6fbc0e880";
       const response = await fetch(`https://pro.openweathermap.org/data/2.5/weather?q=${location}&APPID=${key}&units=metric`);
       const data = await response.json();
       if (!response.ok) {
         throw new Error(`Failed to fetch weather data: ${response.status} (${response.statusText})`);
       }
       setWeatherData(data);
+      setShowDefaultIcon(false); // Data fetched successfully, so hide default icon
     } catch (error) {
       alert(error.message);
+      setShowDefaultIcon(true); // Show default icon if there's an error fetching data
     }
   };
+
+  useEffect(() => {
+    setShowDefaultIcon(true); // Show default icon initially
+  }, []);
 
   const getWeatherIcon = (weather) => {
     if (weather && weather.length > 0) {
       const icon = weatherIcons[weather[0].main];
-      
-      return icon || defaultIcon ;
+      return icon || defaultIcon;
     }
     return defaultIcon;
   };
@@ -72,12 +77,13 @@ const App = () => {
           </button>
         </form>
         <div className='result-box'>
-          {weatherData && (
+          {(weatherData || showDefaultIcon) && (
             <>
-              <div className='weather-icon'><img src={getWeatherIcon(weatherData.weather)} alt="Weather icon" /></div>
-              <div className='temp'>{weatherData.main && weatherData.main.temp}°C</div>
-              <div className='location'>{weatherData.name}</div>
-              <div className='weather-condition'>{weatherData.weather && weatherData.weather[0] && weatherData.weather[0].main}</div>
+              <div className='weather-icon'><img src={getWeatherIcon(weatherData?.weather)} alt="Weather icon" /></div>
+              <div className='temp'>{weatherData?.main && Math.round(weatherData.main.temp) + "°C"}</div>
+
+              <div className='location'>{weatherData?.name}</div>
+              <div className='weather-condition'>{weatherData?.weather && weatherData.weather[0]?.main}</div>
             </>
           )}
         </div>
