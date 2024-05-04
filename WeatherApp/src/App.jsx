@@ -40,7 +40,8 @@ const App = () => {
 
   const fetchData = async (location) => {
     try {
-      const response = await fetch(`https://pro.openweathermap.org/data/2.5/weather?q=${location}&APPID=1a18911a65315eb2d4feebb6fbc0e880&units=metric`);
+      const key = "1a18911a65315eb2d4feebb6fbc0e880"
+      const response = await fetch(`https://pro.openweathermap.org/data/2.5/weather?q=${location}&APPID=${key}&units=metric`);
       const data = await response.json();
       if (!response.ok) {
         throw new Error(`Failed to fetch weather data: ${response.status} (${response.statusText})`);
