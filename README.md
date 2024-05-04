@@ -2,11 +2,11 @@
 
 # WeatherApp
 
-This is a simple weather application that allows users to check the current weather conditions of a location. The app uses the WeatherAPI.com API to fetch weather data.
+This is a simple weather application that allows users to check the current weather conditions of a location. The app uses OpenWeatherMap API to fetch weather data.
 
 ## Features
 
-- **Current Weather**: Display the current temperature, weather conditions, humidity, wind speed, and other relevant information for a specified location.
+- **Current Weather**: Display the current temperature, weather conditions, and other relevant information for a specified location.
 - **Search**: Users can search for weather information by city name.
 - **Responsive Design**: The app is designed to work well on both desktop and mobile devices.
 
@@ -29,7 +29,7 @@ To run this application locally, follow these steps:
    npm install
    ```
 
-4. Obtain an API key from [WeatherAPI.com](https://www.weatherapi.com/) and replace `<YOUR_API_KEY>` in `src/config.js` with your API key.
+4. Obtain an API key from [OpenWeatherMap](https://openweathermap.org/api) and replace `<YOUR_API_KEY>` in `src/config.js` with your API key.
 
 5. Start the application:
    ```bash
@@ -43,7 +43,7 @@ To run this application locally, follow these steps:
 - ReactJS
 - HTML/CSS
 - JavaScript
-- WeatherAPI.com
+- OpenWeatherMap API
 
 ## Screenshots
 
