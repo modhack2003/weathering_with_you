@@ -89,7 +89,7 @@ const App = () => {
           {(weatherData || showDefaultIcon) && (
             <>
               <div className='weather-icon'><img src={getWeatherIcon(weatherData?.weather)} alt="Weather icon" /></div>
-              <div className='temp'>{weatherData?.main && Math.round(weatherData.main.temp)}°C</div>
+              <div className='temp'>{weatherData?.main && Math.round(weatherData.main.temp)+"°C"}</div>
               <div className='location'>{weatherData?.name}</div>
               <div className='weather-condition'>{weatherData?.weather && weatherData.weather[0]?.main}</div>
             </>
