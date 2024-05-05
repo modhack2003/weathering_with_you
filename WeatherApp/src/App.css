@@ -54,11 +54,28 @@ form {
   padding-top: 10px;
   background-color: transparent;
   height: 10vh;
-  width: 70vh;
+  wheightidth: 70vh;
   border-radius: 20px;
   display: flex;
   justify-content: center;
   align-items: top;
+}
+.getLocationBtn{
+  top:2.5vh;
+  left:3vh;
+  position: absolute;
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background-color:transparent;
+}
+.LocationBtn{
+  height: 40px;
+  width: 40px;
+  background-color: transparent;
+  border: none;
+  outline: none;
 }
 
 
@@ -93,7 +110,7 @@ input {
 .temp {
   position: absolute;
   top: 22vh;
-  left: 18vh;
+  left: 10vh;
   height: 10vh;
   width: 14vh;
   display: grid;
@@ -105,20 +122,38 @@ input {
 .feels_like{
   font-size:3vh;
   position: absolute;
-  top: 33vh;
-  left: 13vh;
+  top: 35vh;
+  left: 8vh;
   align-items: center;
 }
+.Wind_icon{
+  position: absolute;
+  top: 23vh;
+  left: 52vh;
+}
 .wind_speed{
-  height: 15vh;
-  width: 20vh;
-  font-size:3vh;
+  height: 5vh;
+  width: 15vh;
+  font-size:2vh;
   position: absolute;
   display: grid;
   align-items: center;
-  top: 23vh;
+  top: 29vh;
   left: 47vh;
   text-align: center;
+}
+.wind_direction{
+  height: 5vh;
+  width: 17vh;
+  font-size:2vh;
+  position: absolute;
+  display: grid;
+  align-items: center;
+  top: 35vh;
+  left: 46vh;
+  text-align: center;
+
+
 }
 
 .location {
@@ -201,6 +236,7 @@ button {
   border: transparent solid 2px;
   border-radius: 50%;
 }
+
 
 .search-icon {
 
