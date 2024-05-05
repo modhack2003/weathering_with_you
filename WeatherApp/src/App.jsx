@@ -40,12 +40,37 @@ const App = () => {
     fetchData(location);
   };
 
+  const degToCompass = (num) => {
+    let val = Math.floor((num / 22.5) + 0.5);
+    let arr =  [
+      "North",
+      "North-Northeast",
+      "Northeast",
+      "East-Northeast",
+      "East",
+      "East-Southeast",
+      "Southeast",
+      "South-Southeast",
+      "South",
+      "South-Southwest",
+      "Southwest",
+      "West-Southwest",
+      "West",
+      "West-Northwest",
+      "Northwest",
+      "North-Northwest"
+  ];
+  
+    return arr[(val % 16)];
+  }
+
   const fetchData = async (location) => {
     setProgress(30); // Update loading progress
     try {
       const key = "1a18911a65315eb2d4feebb6fbc0e880";
       const response = await fetch(`https://pro.openweathermap.org/data/2.5/weather?q=${location}&APPID=${key}&units=metric`);
       const data = await response.json();
+      data.wind.dir = degToCompass(data.wind.deg); // Convert wind direction from degrees to cardinal directions
       setProgress(70); // Update loading progress
       if (!response.ok) {
         throw new Error(`Failed to fetch weather data: ${response.status} (${response.statusText})`);
@@ -92,6 +117,7 @@ const App = () => {
               <div className='temp'>{weatherData?.main && Math.round(weatherData.main.temp)+"°C"}</div>
               <div className='feels_like'>{weatherData?.main && "Feels like"+" "+Math.round(weatherData.main.feels_like)+"°C"}</div>
               <div className='wind_speed'>{weatherData?.wind && "Wind speed"+" "+ Math.round(weatherData.wind.speed)+"km/h"}</div>
+              <div className='wind_direction'>{weatherData?.wind && "Wind direction"+" "+ weatherData.wind.dir}</div>
               <div className='location'>{weatherData?.name}</div>
               <div className='weather-condition'>{weatherData?.weather && weatherData.weather[0]?.main}</div>
             </>
