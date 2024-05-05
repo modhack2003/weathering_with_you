@@ -54,7 +54,7 @@ form {
   padding-top: 10px;
   background-color: transparent;
   height: 10vh;
-  width: 55vh;
+  width: 70vh;
   border-radius: 20px;
   display: flex;
   justify-content: center;
@@ -66,6 +66,7 @@ input {
   background-color: transparent;
   z-index: 2;
   position: absolute;
+  align-items: center;
   left: 15vh;
   height: 50px;
   width: 42vh;
@@ -81,7 +82,7 @@ input {
 
 .result-box {
   height: 60vh;
-  width: 60vh;
+  width: 70vh;
   position: relative;
   display: flex;
   justify-content: space-between;
@@ -91,21 +92,38 @@ input {
 
 .temp {
   position: absolute;
-  top: 30vh;
-  left: 22vh;
+  top: 22vh;
+  left: 18vh;
   height: 10vh;
-  width: 10vh;
+  width: 14vh;
   display: grid;
   align-items: center;
   justify-content: center;
   font-size: 5vh;
 
 }
+.feels_like{
+  font-size:3vh;
+  position: absolute;
+  top: 33vh;
+  left: 13vh;
+  align-items: center;
+}
+.wind_speed{
+  height: 15vh;
+  width: 20vh;
+  font-size:3vh;
+  position: absolute;
+  display: grid;
+  align-items: center;
+  top: 23vh;
+  left: 47vh;
+  text-align: center;
+}
 
 .location {
   position: absolute;
-  bottom: 0px;
-  
+  bottom: 0px;  
   left: 0px;
   height: 10vh;
   width: 30vh;
@@ -129,8 +147,8 @@ input {
 
 .weather-icon {
   position: absolute;
-  top: 7vh;
-  left: 18vh;
+  top: 5px;
+  left: 24vh;
   height: 20vh;
   width: 20vh;
   display: grid;
