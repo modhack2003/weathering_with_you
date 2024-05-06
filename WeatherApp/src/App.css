@@ -54,7 +54,7 @@ form {
   padding-top: 10px;
   background-color: transparent;
   height: 10vh;
-  wheightidth: 70vh;
+  width:70vh;
   border-radius: 20px;
   display: flex;
   justify-content: center;
@@ -245,4 +245,11 @@ button {
   top: 10px;
   left: 10px;
   bottom: 0px;
+}
+.search-icon:hover { cursor: pointer;}
+.search-icon:active {
+  transform: scale(0.9);
+}
+.search-icon:focus {
+  outline: none;
 }

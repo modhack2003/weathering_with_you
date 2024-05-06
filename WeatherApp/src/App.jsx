@@ -126,7 +126,7 @@ const App = () => {
 
   return (
     <>
-      <LoadingBar color='#ffc107' progress={progress} height={5} />
+      <LoadingBar color='#ffc107'st className="LoadingBar" progress={progress} height={5} />
       <div className='main'>
         <div className='cards'>
           <button className="getLocationBtn" onClick={getLocationWeather}>
