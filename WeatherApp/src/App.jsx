@@ -12,6 +12,7 @@ import thunderstormIcon from "./assets/storm.png";
 import snowIcon from "./assets/snow.png";
 import HazeIcon from "./assets/fog.png";
 import WindIcon from "./assets/Wind.png";
+import NavBar from "./components/NavBar"
 
 const weatherIcons = {
   "Clear": sunIcon,
@@ -126,8 +127,10 @@ const App = () => {
 
   return (
     <>
-      <LoadingBar color='#ffc107' className="LoadingBar" progress={progress} height={5} />
       <div className='main'>
+      <NavBar className="NavBar"/>
+      <LoadingBar color='#ffc107' style={{position:"absolute"}} className="LoadingBar" progress={progress} height={5} />
+        
         <div className='cards'>
           <button className="getLocationBtn" onClick={getLocationWeather}>
             <FaLocationDot className="LocationBtn" />

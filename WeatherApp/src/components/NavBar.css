@@ -1,0 +1,62 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&display=swap');
+
+* {
+    font-family: "Comfortaa", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 484;
+    font-style: normal;
+  }
+*{
+    margin: 0px;
+    padding: 0px;
+    
+}
+
+.navbar {
+    width: 99%;
+    height: 5vh;
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
+    -webkit-backdrop-filter: blur(7px) saturate(200%);
+    backdrop-filter: blur(7px) saturate(200%);
+    background-color: rgba(17, 25, 40, 0.26);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.125);
+    color: #fff;
+    margin-top: 0px;
+    padding: 10px 10px;
+  }
+  
+.navbar-logo img {
+    height: 50px;
+    border-radius: 10px;
+  }
+ .title{
+    font-size: 50px;
+    font-weight: 50vh;
+    position: absolute;
+    left :84vh;
+    color: #fff;
+    
+  }
+  
+  .navbar-links {
+    list-style-type: none;
+    display: flex;
+  }
+  
+  .navbar-links li {
+    margin-right: 20px;
+  }
+  
+  .navbar-links li a {
+    text-decoration: none;
+    color: #fff;
+  }
+  
+  .navbar-links li a:hover {
+    color:rgb(139, 30, 242)
+  }
+  
