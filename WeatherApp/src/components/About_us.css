@@ -5,6 +5,7 @@
   height: 100vh;
 }
 .about-us-container {
+  height: 60vh;
     position: absolute;
     top: 22vh;
     max-width: 800px;
@@ -27,9 +28,8 @@
     line-height: 1.6;
   }
   
-  .contact-info {
-    margin-top: 20px;
-    border-top: 1px solid #ccc;
-    padding-top: 20px;
-  }
+.github-info{
+  position: absolute;
+  bottom: 0px;
+}
   

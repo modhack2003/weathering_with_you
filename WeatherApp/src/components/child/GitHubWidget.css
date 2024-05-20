@@ -1,0 +1,30 @@
+.github-widget {
+    width: 42vw;
+    border: 1px solid transparent;
+    border-radius: 5px;
+    padding: 10px;
+
+    margin: 0 auto;
+    display: flex; 
+    align-items: center; 
+}
+
+.avatar img {
+    width:100px; /* Adjust size as needed */
+    height: 100px; /* Adjust size as needed */
+    border-radius: 80%; /* To make it round */
+    margin-right: 10px;
+}
+
+.widget-header {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+.widget-content {
+    margin-bottom: 10px;
+}
+
+.widget-footer {
+    text-align: center;
+}
