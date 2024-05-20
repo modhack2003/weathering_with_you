@@ -1,108 +1,112 @@
-
 @import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&display=swap');
 
 * {
-    font-family: "Comfortaa", sans-serif;
-    font-optical-sizing: auto;
-    font-weight: 484;
-    font-style: normal;
-  }
-*{
-    margin: 0px;
-    padding: 0px;
-    
+  font-family: "Comfortaa", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 484;
+  font-style: normal;
+  margin: 0;
+  padding: 0;
 }
 
 .navbar {
-    width: 99%;
-    height: 6vh;
-    display: flex;
-    justify-content:space-between;
-    align-items: center;
-    -webkit-backdrop-filter: blur(7px) saturate(200%);
-    backdrop-filter: blur(7px) saturate(200%);
-    background-color: rgba(17, 25, 40, 0.26);
-    border-radius: 12px;
-    border: 1px solid rgba(255, 255, 255, 0.125);
-    color: #fff;
-    margin-top: 0px;
-    padding: 10px 10px;
-  }
-  
+  width: 99%;
+  height: 6vh;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  -webkit-backdrop-filter: blur(7px) saturate(200%);
+  backdrop-filter: blur(7px) saturate(200%);
+  background-color: rgba(17, 25, 40, 0.26);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.125);
+  color: #fff;
+  margin-top: 0px;
+  padding: 10px 10px;
+}
+
 .navbar-logo img {
-    height: 50px;
-    border-radius: 10px;
-  }
- .title{
-    font-size: 40px;
-    font-weight: 50vh;
-    position:static ;
-    align-items: center;
-    top:0;
-    left :80vh;
-    color: #fff;
-    
-  }
-  .sub{
-    font-size: 20px;
-    color:black;
-    position: absolute;
-    bottom: 0;
-    left:55vw;
-  }
-  .navbar-links {
-    list-style-type: none;
-    display: flex;
-  }
-  
-  .navbar-links li {
-    margin-right: 20px;
-  }
-  
-  .navbar-links li a {
-    text-decoration: none;
-    color: #fff;
-  }
-  
-  .navbar-links li a:hover {
-    color:rgb(139, 30, 242)
-  }
-  .menu{
-    height: 100vh;
-    width: 23vw;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    backdrop-filter: blur(12px) saturate(180%);
-    -webkit-backdrop-filter: blur(12px) saturate(180%);
-    background-color: rgba(49, 53, 53, 0.58);
-    -webkit-box-shadow: -49px -2px 60px 1px rgba(0,0,0,0.71);
-    -moz-box-shadow: -49px -2px 60px 1px rgba(0,0,0,0.71);
-    align-items: center;
-    position: absolute;
-    top: 0;
-    right: 0;
-  }
-  .menu a{
-    text-decoration: none;
-    color: #fff;
-    font-size: 2rem;
-    font-weight: 500;
-    padding: 10px 10px;
-    margin: 10px 10px;
-    border: 1px solid rgba(255, 255, 255, 0.125);
-    border-radius: 10px;
-    outline: none;
-    transition: 0.7s;
-    -webkit-transition: 1s;    
-    
-  }
-  .menu-icon{
-    font-size: 2rem;
-    display: none;
-    
-  }
-.close{
+  height: 50px;
+  border-radius: 10px;
+}
+
+.title {
+  font-size: 40px;
+  font-weight: 50vh;
+  position: static;
+  align-items: center;
+  top: 0;
+  left: 80vh;
+  color: #fff;
+}
+
+.sub {
+  font-size: 20px;
+  color: black;
+  position: absolute;
+  bottom: 0;
+  left: 55vw;
+}
+
+.navbar-links {
+  list-style-type: none;
+  display: flex;
+}
+
+.navbar-links li {
+  margin-right: 20px;
+}
+
+.navbar-links li a {
+  text-decoration: none;
+  color: #fff;
+}
+
+.navbar-links li a:hover {
+  color: rgb(139, 30, 242);
+}
+
+.menu {
+  display: none;
+  flex-direction: column;
+  justify-content: space-evenly;
+  backdrop-filter: blur(12px) saturate(180%);
+  -webkit-backdrop-filter: blur(12px) saturate(180%);
+  background-color: rgba(49, 53, 53, 0.58);
+  -webkit-box-shadow: -49px -2px 60px 1px rgba(0, 0, 0, 0.71);
+  -moz-box-shadow: -49px -2px 60px 1px rgba(0, 0, 0, 0.71);
+  align-items: center;
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100vh;
+  width: 23vw;
+}
+
+.menu.open {
+  display: flex;
+}
+
+.menu a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 2rem;
+  font-weight: 500;
+  padding: 10px 10px;
+  margin: 10px 10px;
+  border: 1px solid rgba(255, 255, 255, 0.125);
+  border-radius: 10px;
+  outline: none;
+  transition: 0.7s;
+  -webkit-transition: 1s;
+}
+
+.menu-icon {
+  font-size: 2rem;
+  display: none;
+}
+
+.close {
   position: absolute;
   top: 10px;
   right: 10px;
@@ -111,19 +115,16 @@
   padding: 10px 10px 2px;
   margin: 10px 10px;
 }
-.close:hover{
+
+.close:hover {
   cursor: pointer;
-}  
+}
 
 @media (max-width: 1290px) {
-  
-   .menu-icon{
-      display: block;
-    }
-    .mobile-hide{
-      display: none;
-    }
-   
+  .menu-icon {
+    display: block;
   }
-
-  
+  .mobile-hide {
+    display: none;
+  }
+}

@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Weather_fetch from './components/Weather_fetch';
 import NavBar from "./components/NavBar";
 import About_us from './components/About_us';
+import ContactUs from '../src/components/ContactUs';
 
 const App = () => {
   return (
@@ -11,6 +12,7 @@ const App = () => {
       <Routes> 
         <Route path="/" element={<Weather_fetch />} />
         <Route path="/aboutus" element={<About_us />} />
+        <Route path= "/ContactUs" element={<ContactUs/>}/>
       </Routes>
     </Router>
   );

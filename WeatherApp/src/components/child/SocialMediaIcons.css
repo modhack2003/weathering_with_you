@@ -1,0 +1,21 @@
+.social-media-icons {
+    height: 30vh;
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    grid-template-columns:1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr ;
+    gap: 20px;
+    margin: 20px 0;
+}
+
+.social-icon {
+    font-size: 5rem; /* Increase icon size */
+    color: #000; /* Black and white icons */
+    transition: color 0.3s ease;
+    height: 10vh;
+    width: 10vh;
+}
+
+.social-icon:hover {
+    color: var(--hover-color); /* Change to original color on hover */
+}
