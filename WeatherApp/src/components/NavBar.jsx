@@ -1,17 +1,20 @@
 import React from 'react';
-import './NavBar.css'; // Import your CSS file for styling
-import logo from "../assets/logo.jpeg"
+import './NavBar.css'; 
+import logo from "../assets/logo.jpeg";
+import { Link } from 'react-router-dom';
+
 const NavBar = () => {
   return (
     <nav className="navbar">
       <div className="navbar-logo">
         <img src={logo} alt="Logo" />
       </div>
-      <div className='title'>Tenki no ko </div>
+      <div className='title'>weathering with you</div>
+      <div className='sub'>Tenki no ko </div>
       <ul className="navbar-links">
-        <li><a href="#">Home</a></li>
-        <li><a href="#">About Us</a></li>
-        <li><a href="#">Contact Us</a></li>
+        <li><Link to="/">Home</Link></li>
+        <li><Link to="/aboutus">About Us</Link></li>
+        <li><Link to="/contact">Contact Us</Link></li>
       </ul>
     </nav>
   );

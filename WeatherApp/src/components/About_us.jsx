@@ -1,8 +1,9 @@
 import React from 'react';
-import './AboutUsPage.css'; // Import your CSS file for styling
+import './About_us.css'; // Import your CSS file for styling
 
 const AboutUsPage = () => {
   return (
+    <div className='container'>
     <div className="about-us-container">
       <h1>About Us</h1>
       <p>Welcome to our Weather App!</p>
@@ -14,6 +15,7 @@ const AboutUsPage = () => {
         <p>Name: Bikram Dey</p>
         <p>Email: bikram20031213@gmail.com</p>
       </div>
+    </div>
     </div>
   );
 }

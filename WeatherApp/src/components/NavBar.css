@@ -15,7 +15,7 @@
 
 .navbar {
     width: 99%;
-    height: 5vh;
+    height: 6vh;
     display: flex;
     justify-content:space-between;
     align-items: center;
@@ -34,14 +34,21 @@
     border-radius: 10px;
   }
  .title{
-    font-size: 50px;
+    font-size: 40px;
     font-weight: 50vh;
     position: absolute;
-    left :84vh;
+    top:0;
+    left :75vh;
     color: #fff;
     
   }
-  
+  .sub{
+    font-size: 20px;
+    color:black;
+    position: absolute;
+    bottom: 0;
+    left:55vw;
+  }
   .navbar-links {
     list-style-type: none;
     display: flex;
