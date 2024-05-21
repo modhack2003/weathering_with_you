@@ -29,7 +29,7 @@ const NavBar = () => {
         </div>
         <Link to="/Home" onClick={handleClose}>Home</Link>
         <Link to="/aboutus" onClick={handleClose}>About Us</Link>
-        <Link to="/contact" onClick={handleClose}>Contact Us</Link>
+        <Link to="/contactUS" onClick={handleClose}>Contact Us</Link>
       </ul>
       <ul className="navbar-links">
         <li className='mobile-hide'><Link to="/Home">Home</Link></li>

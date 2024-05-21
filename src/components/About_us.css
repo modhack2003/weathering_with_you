@@ -1,35 +1,46 @@
-.container{
+/* src/components/HomePage.css */
+
+.container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 100vh;
+  height: auto; /* Changed height to auto for responsiveness */
+  min-height: 100vh; /* Added min-height for smaller content */
 }
+
 .about-us-container {
-  height: 60vh;
-    position: absolute;
-    top: 22vh;
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
-    background-color:rgb(26,225,231 0.57);    
-    box-shadow: 20px 20px 50px rgba(0, 0, 0, 0.4);
-    -webkit-backdrop-filter: blur(5px);
-    backdrop-filter: blur(5px);
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    border-radius: 20px;
-  }
-  
-  .about-us-container h1 {
-    color: #333;
-  }
-  
-  .about-us-container p {
-    color: #666;
-    line-height: 1.6;
-  }
-  
-.github-info{
-  position: absolute;
-  bottom: 0px;
+  height: auto; /* Changed height to auto for responsiveness */
+  position: relative; /* Changed position to relative */
+  top: 0; /* Removed top positioning */
+  max-width: 90%; /* Adjusted max-width for responsiveness */
+  margin: 20px auto; /* Adjusted margin for responsiveness */
+  padding: 20px;
+  background-color: rgba(26, 225, 231, 0.57);
+  box-shadow: 20px 20px 50px rgba(0, 0, 0, 0.4);
+  -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 20px;
 }
-  
+
+.about-us-container h1 {
+  color: #333;
+}
+
+.about-us-container p {
+  color: #666;
+  line-height: 1.6;
+}
+
+/* Media queries for responsiveness */
+@media (max-width: 768px) {
+  .container {
+    padding: 20px; /* Adjusted padding for smaller screens */
+  }
+}
+
+@media (max-width: 480px) {
+  .about-us-container {
+    padding: 15px; /* Further adjusted padding for mobile screens */
+  }
+}

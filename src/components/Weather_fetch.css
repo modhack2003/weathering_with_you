@@ -274,12 +274,12 @@ button {
   font-size: 16px;
   margin: 0;
 }
-@media (max-width: 429px) {
+@media (max-width: 419px) {
   #root {
     background: rgb(0, 255, 236);
     background: radial-gradient(circle, rgba(0, 255, 236, 1) 20%, rgba(142, 86, 205, 1) 83%);
     height: 140vh;
-    width: max-content;
+    width: 120vw;
     
   }
   

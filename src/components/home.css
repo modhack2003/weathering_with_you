@@ -42,4 +42,44 @@
   .home-button:hover {
     background-color: #0057b3;
   }
+  @media (max-width: 768px) {
+    .home-container {
+      padding: 20px;
+    }
   
+    .home-container h1 {
+      font-size: 2em;
+      margin-bottom: 15px;
+    }
+  
+    .home-container p {
+      font-size: 1em;
+      margin-bottom: 30px;
+    }
+  
+    .home-button {
+      padding: 8px 16px;
+      font-size: 0.9em;
+    }
+  }
+  
+  @media (max-width: 429px) {
+    .home-container {
+      padding: 10px;
+    }
+  
+    .home-container h1 {
+      font-size: 1.5em;
+      margin-bottom: 10px;
+    }
+  
+    .home-container p {
+      font-size: 0.9em;
+      margin-bottom: 20px;
+    }
+  
+    .home-button {
+      padding: 6px 12px;
+      font-size: 0.8em;
+    }
+  } 

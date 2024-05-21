@@ -1,21 +1,25 @@
+/* src/components/HomePage.css */
+
 .social-media-icons {
-    height: 30vh;
     display: grid;
     align-items: center;
     justify-content: center;
-    grid-template-columns:1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr ;
+    grid-template-columns: repeat(auto-fit, minmax(10vh, 1fr)); /* Responsive grid */
     gap: 20px;
     margin: 20px 0;
-}
-
-.social-icon {
-    font-size: 5rem; /* Increase icon size */
+  }
+  
+  .social-icon {
+    font-size: 4rem; /* Adjusted icon size for responsiveness */
     color: #000; /* Black and white icons */
     transition: color 0.3s ease;
-    height: 10vh;
-    width: 10vh;
-}
-
-.social-icon:hover {
+    height: 8vh; /* Adjusted icon height for responsiveness */
+    width: 8vh; /* Adjusted icon width for responsiveness */
+  }
+  
+  .social-icon:hover {
     color: var(--hover-color); /* Change to original color on hover */
-}
+  }
+  
+
+  
