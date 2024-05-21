@@ -32,7 +32,7 @@ const NavBar = () => {
         <Link to="/contact" onClick={handleClose}>Contact Us</Link>
       </ul>
       <ul className="navbar-links">
-        <li className='mobile-hide'><Link to="/">Home</Link></li>
+        <li className='mobile-hide'><Link to="/Home">Home</Link></li>
         <li className='mobile-hide'><Link to="/aboutus">About Us</Link></li>
         <li className='mobile-hide'><Link to="/contactUs">Contact Us</Link></li>
         <div className='menu-icon' onClick={handleOpen}>
