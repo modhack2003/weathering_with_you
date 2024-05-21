@@ -86,12 +86,11 @@ form {
 
 input {
   background-color: transparent;
-  z-index: 2;
   position: absolute;
   align-items: center;
   left: 15vh;
   height: 50px;
-  width: 42vh;
+  width: 40vh;
   text-align: left;
   color: transparent;
   font-size: 30px;
@@ -235,11 +234,8 @@ form:focus-within input {
 }
 
 button {
-  display: flex;
-  align-items: center;
-  justify-content: center;
   height: 50px;
-  margin-left: 5vh;
+  margin-left: 7vh;
   width: 50px;
   background-color: transparent;
   border: transparent solid 2px;
@@ -248,12 +244,10 @@ button {
 
 
 .search-icon {
-
   height: 55%;
   width: 55%;
   top: 10px; 
   left: 10px;
-  bottom: 0px;
 }
 .search-icon:hover { cursor: pointer;}
 .search-icon:active {
