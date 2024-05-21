@@ -255,6 +255,25 @@ button {
 .search-icon:focus {
   outline: none;
 }
+.glass-footer {
+  background: rgba(51, 50, 50, 0.414);
+  backdrop-filter: blur(10px);
+  border-top: 1px solid rgba(51, 50, 50, 0.414);
+  padding: 20px;
+  text-align: center;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+}
+
+.glass-footer p {
+  color: #fff;
+  font-weight: bold;
+  font-size: 16px;
+  margin: 0;
+}
+
 @media (max-width: 1200px) {
   
   .cards{

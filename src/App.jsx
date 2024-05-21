@@ -17,6 +17,11 @@ const App = () => {
         <Route path="/aboutus" element={<About_us />} />
         <Route path= "/ContactUs" element={<ContactUs/>}/>
       </Routes>
+      <footer class="glass-footer">
+           <p> Made with love |
+            &copy; 2024 BIKRAM DEY</p>
+      </footer>
+
     </Router>
   );
 }
