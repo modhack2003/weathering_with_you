@@ -23,6 +23,7 @@
   color: #fff;
   margin-top: 0px;
   padding: 10px 10px;
+  
 }
 
 .navbar-logo img {
@@ -81,6 +82,7 @@
   right: 0;
   height: 100vh;
   width: 23vw;
+  
 }
 
 .menu.open {
@@ -126,5 +128,17 @@
   }
   .mobile-hide {
     display: none;
+  }
+}
+@media (max-width: 429px) {
+  .navbar{
+    width: 115vw;
+  }
+  .title{
+    font-size: 2rem;
+  }
+  .sub{
+    font-size: 1.3rem;
+    left: 70vw;
   }
 }

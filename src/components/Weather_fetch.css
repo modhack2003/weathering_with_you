@@ -1,0 +1,433 @@
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&display=swap');
+
+* {
+  margin: 0px;
+  padding: 0px;
+
+}
+
+#root {
+  background: rgb(0, 255, 236);
+  background: radial-gradient(circle, rgba(0, 255, 236, 1) 20%, rgba(142, 86, 205, 1) 83%);
+  height: 110vh;
+  
+}
+
+
+* {
+  font-family: "Comfortaa", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 484;
+  font-style: normal;
+}
+
+
+.main {
+  width: 100%;
+  height: 100vh;
+  display: grid;
+  justify-items: center;
+  
+  padding-top: 20px;
+  
+
+}
+
+.cards {
+  height: 75vh;
+  width: 80vh;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 20px;
+  display: grid;
+  justify-content: center;
+  align-items: top;
+  padding: 10px;
+  transition-duration: 2s;
+}
+
+.cards:hover {
+  height: 80vh;
+}
+
+form {
+  padding-top: 10px;
+  background-color: transparent;
+  height: 10vh;
+  width:35vw;
+  border-radius: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: top;
+}
+.getLocationBtn{
+  top:2.5vh;
+  left:3vh;
+  position: absolute;
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background-color:transparent;
+}
+.LocationBtn{
+  height: 40px;
+  width: 40px;
+  background-color: transparent;
+  border: none;
+  outline: none;
+}
+
+
+input {
+  background-color: transparent;
+  z-index: 2;
+  position: absolute;
+  align-items: center;
+  left: 15vh;
+  height: 50px;
+  width: 42vh;
+  text-align: left;
+  color: transparent;
+  font-size: 30px;
+  margin-left: 20px;
+  border: rgb(19, 20, 20) 5px solid;
+  border-radius: 20px;
+  padding-left: 10px;
+  outline: none;
+}
+.result-box {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  padding: 1px;
+  height: 65vh; /* Adjust as needed */
+  width: 80vh; /* Adjust as needed */
+  
+  overflow: hidden;
+}
+
+.temp {
+  order:3 ;
+  top: 22vh;
+  left: 10vh;
+  height: 10vh;
+  width: 14vh;
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  font-size: 5vh;
+
+}
+.feels_like{
+  order:5;
+  font-size:3vh;  
+  top: 35vh;
+  left: 8vh;
+  align-items: center;
+}
+.Wind_icon{
+  order:2;  
+  top: 23vh;
+  left: 52vh;
+}
+.wind_speed{
+  order:4;
+  height: 5vh;
+  width: 15vh;
+  font-size:2vh;
+   display: grid;
+  align-items: center;
+  top: 29vh;
+  left: 47vh;
+  text-align: center;
+}
+.wind_direction{
+  order: 6;
+  height: 5vh;
+  width: 17vh;
+  font-size:2vh;
+  display: grid;
+  align-items: center;
+  top: 35vh;
+  left: 46vh;
+  text-align: center;
+
+
+}
+
+.location {
+  order:7;  
+  bottom: 0px;  
+  left: 0px;
+  height: 10vh;
+  width: 30vh;
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  font-size: 5vh;
+}
+
+.weather-condition {
+ order:8;
+  bottom: 0px;
+  right: 0px;
+  height: 10vh;
+  width: 25vh;
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  font-size: 5vh
+}
+
+.weather-icon {
+
+  height: 20vh;
+  width: 18vw;
+ 
+}
+
+.weather-icon img {
+  height: 70%;
+  
+}
+.weather-icon,.Wind_icon, .temp, .feels_like,  .wind_speed, .wind_direction, .location, .weather-condition {
+  flex: 1 1 45%; 
+  margin: 2px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+label {
+  left: 30vh;
+  height: 50px;
+  width: 40vh;
+  color: black;
+  text-align: center;
+  align-content: center;
+  font-size: 20px;
+  margin-left: 20px;
+  padding-left: 10px;
+}
+
+form:focus-within label {
+  transform: translateY(-50%) translateX(-20%);
+  transition: 1s;
+  font-size: 20px;
+  border: none;
+  color: rgb(39, 65, 52);
+}
+
+form:focus-within input {
+  border: none;
+  color: black;
+  border-bottom: ridge 2px black;
+  border-radius: 0px;
+  transition: 2s;
+}
+
+button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 50px;
+  margin-left: 5vh;
+  width: 50px;
+  background-color: transparent;
+  border: transparent solid 2px;
+  border-radius: 50%;
+}
+
+
+.search-icon {
+
+  height: 55%;
+  width: 55%;
+  top: 10px; 
+  left: 10px;
+  bottom: 0px;
+}
+.search-icon:hover { cursor: pointer;}
+.search-icon:active {
+  transform: scale(0.9);
+}
+.search-icon:focus {
+  outline: none;
+}
+.glass-footer {
+  background: rgba(51, 50, 50, 0.414);
+  backdrop-filter: blur(10px);
+  border-top: 1px solid rgba(51, 50, 50, 0.414);
+  padding: 20px;
+  text-align: center;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+}
+
+.glass-footer p {
+  color: #fff;
+  font-weight: bold;
+  font-size: 16px;
+  margin: 0;
+}
+@media (max-width: 429px) {
+  #root {
+    background: rgb(0, 255, 236);
+    background: radial-gradient(circle, rgba(0, 255, 236, 1) 20%, rgba(142, 86, 205, 1) 83%);
+    height: 140vh;
+    width: max-content;
+    
+  }
+  
+  .main{
+    height: 122vh;
+    width: auto;
+
+  }
+  .cards {
+    height: 90vh;
+    width: 90vw; 
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 5px;
+  }
+  .getLocationBtn {
+    position: absolute;
+    top: 1.5vh;
+    left:3vh;
+    height: 5vh;
+    width: 5vh;
+    margin-left: 0;
+    
+  }
+
+  .LocationBtn {
+    height: 4vh;
+    width: 4vh;
+    padding: 2px;
+  }
+
+  form{
+    position: absolute;
+    top: 1vh;
+    left: 13vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    height: 6vh;
+    padding: 2px;
+  }
+  
+
+  input {
+    left: 5vw;
+    height: 30px;
+    width: 50vw;
+    font-size: 10px;
+    border: 3px solid rgb(19, 20, 20);
+    padding-left: 3px;
+  }
+
+  label {
+    left: 10vw;
+    height: 30px;
+    width: 40vw;
+    font-size: 15px;
+  }
+
+  form:focus-within label {
+    font-size: 7px;
+  }
+
+  form:focus-within input {
+    font-size: 7px;
+  }
+
+  button {
+   height: 35px;
+  }
+  .result-box {
+    height: 50vh; /* Increased height */
+    width: 85vw; /* Decreased width */
+    position: absolute;
+    top: 20vh;
+   
+  }
+
+  .weather-icon, .temp, .feels_like, .Wind_icon, .wind_speed, .wind_direction, .location, .weather-condition {
+    flex:1 1 40%; 
+    font-size: 0.8rem;
+  }
+
+  .weather-icon img{
+    max-width: 60%; 
+    max-height: 60%
+
+  }
+  .weather-icon {
+    height: 15vh;
+    width: 7vw;
+  }
+
+  .temp {
+    font-size: 2rem;
+   
+  }
+
+  .feels_like {
+    font-size: 1rem;
+  
+  }
+
+  .Wind_icon {
+   height: 15vh;
+   width: 7vw;
+   
+  }
+
+  .Wind_icon img {
+    max-width: 50%; 
+    max-height: 100%
+  }
+
+  .wind_speed {
+    font-size: 1rem;
+    
+  }
+
+  .wind_direction {
+    font-size: 1rem;
+    
+  }
+
+  .location {
+    font-size: 1.2rem;
+  
+  }
+
+  .weather-condition {
+    font-size: 1.3rem;
+  
+  }
+
+  
+
+  .weather-icon img {
+    height: 90%;
+    width: 100%;
+  }
+
+ 
+}

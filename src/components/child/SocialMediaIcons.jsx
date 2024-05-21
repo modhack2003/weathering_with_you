@@ -15,7 +15,7 @@ const SocialMediaIcons = () => {
     const socialMedia = [
         { icon: faGithub, url: 'https://github.com/modhack2003', color: '#333' },
         { icon: faXTwitter, url: 'https://x.com/Bikramdey2003', color: 'white' },
-        { icon: faLinkedin, url: 'www.linkedin.com/in/bikram-dey-700452997020031312', color: '#0077B5' },
+        { icon: faLinkedin, url: 'https://www.linkedin.com/in/bikram-dey-700452997020031312', color: '#0077B5' },
         { icon: faFacebook, url: 'https://www.facebook.com/bikram.dey.94849', color: '#1877F2' },
         { icon: faInstagram, url: 'https://instagram.com/your_username', color: '#E4405F' },
         { icon: faYoutube, url: 'https://youtube.com/@bikramdey3964?si=JOx16q8QoAim52z7', color: '#FF0000' },
