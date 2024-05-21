@@ -8,7 +8,7 @@ const Home = () => {
     <div className="home-container">
       <h1>Welcome to Weathering with you</h1>
       <p>Get real-time weather updates for your location or any city.</p>
-      <Link to="/" className='home-button'>
+      <Link to="/weather" className='home-button'>
         Get Started
       </Link>
     </div>

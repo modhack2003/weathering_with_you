@@ -27,7 +27,7 @@ const NavBar = () => {
         <div className='close' onClick={handleClose}>
           <IoMdClose className='icon-close'/>
         </div>
-        <Link to="/" onClick={handleClose}>Home</Link>
+        <Link to="/Home" onClick={handleClose}>Home</Link>
         <Link to="/aboutus" onClick={handleClose}>About Us</Link>
         <Link to="/contact" onClick={handleClose}>Contact Us</Link>
       </ul>
