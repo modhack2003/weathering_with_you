@@ -10,6 +10,8 @@
 }
 
 .navbar {
+  position: relative;
+  z-index:1 ;
   width: 99%;
   height: 6vh;
   display: flex;
@@ -132,13 +134,18 @@
 }
 @media (max-width: 429px) {
   .navbar{
-    width: 115vw;
+    width: 105vw;
   }
   .title{
-    font-size: 2rem;
+    font-size: 1.7rem;
   }
   .sub{
-    font-size: 1.3rem;
-    left: 70vw;
+    font-size: 1rem;
+    left: 65vw;
+  }
+  .menu{
+    width: 100%;
+    height: 130vh;
+    
   }
 }
