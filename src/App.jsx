@@ -10,6 +10,7 @@ const App = () => {
   return (
     <Router>
       <NavBar />
+      <Home/>
       <Routes> 
         <Route path = "/Home" element={<Home/>}/>
         <Route path="/" element={<Weather_fetch />} />
