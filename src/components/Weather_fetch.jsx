@@ -138,7 +138,7 @@ const Weather_fetch = () => {
             <form onSubmit={handleSearch}>
               <input className='cityName' id='cityName' />
               <label className='l' htmlFor="cityName">Enter your city</label>
-              <button className="Search" type="submit">
+              <button className="Search-btn" type="submit">
                 <IoSearch className='search-icon' />
               </button>
             </form>
