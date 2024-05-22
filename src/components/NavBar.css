@@ -13,7 +13,7 @@
   position: relative;
   z-index:1 ;
   width: 99%;
-  height: 8vh;
+  height: 9vh;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -34,7 +34,7 @@
 }
 
 .title {
-  font-size: 6rem;
+  font-size: 5rem;
   font-weight: 50vh;
   position: static;
   align-items: center;
@@ -44,17 +44,17 @@
 }
 
 .sub {
-  font-size: 2rem;
+  font-size: 1.5rem;
   color: black;
   position: absolute;
   bottom: 0;
-  left: 60vw;
+  left: 62vw;
 }
 
 .navbar-links {
   list-style-type: none;
   display: flex;
-  font-size: 2rem;
+  font-size: 1rem;
 }
 
 .navbar-links li {
@@ -67,7 +67,7 @@
 }
 
 .navbar-links li a:hover {
-  color: rgb(139, 30, 242);
+  color: rgb(22, 154, 230);
 }
 
 .menu {
@@ -125,7 +125,7 @@
   cursor: pointer;
 }
 
-@media (max-width: 1290px) {
+@media (max-width: 500px) {
   .menu-icon {
     display: block;
   }

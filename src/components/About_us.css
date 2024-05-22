@@ -39,7 +39,7 @@
   }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 500px) and (min-width : 300px) {
   .about-us-container {
     padding: 15px; /* Further adjusted padding for mobile screens */
   }

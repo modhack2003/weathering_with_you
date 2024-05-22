@@ -46,7 +46,7 @@
   }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 500px) and (min-width : 300px) {
   .github-widget {
     width: 90%; /* Further adjusted width for mobile screens */
   }
