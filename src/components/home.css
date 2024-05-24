@@ -1,6 +1,5 @@
-/* src/components/HomePage.css */
-.home-container {
-  height: 90vh;
+  .home-container {
+    height: 80vh;
     text-align: center;
     padding: 50px;
     display: flex;
@@ -18,6 +17,20 @@
   .home-container p {
     font-size: 1.2em;
     margin-bottom: 40px;
+    overflow: hidden;
+    white-space: nowrap;
+    border-right: 0.15em solid orange;
+    animation: typing 3.5s steps(30, end), blink-caret 0.75s step-end infinite;
+  }
+  
+  @keyframes typing {
+    from { width: 0; }
+    to { width: 45%; }
+  }
+  
+  @keyframes blink-caret {
+    from, to { border-color: transparent; }
+    50% { border-color: rgb(0, 0, 0); }
   }
   
   .home-container a {
@@ -30,7 +43,7 @@
   .home-button {
     margin-top: 20px;
     background-color: #007bff;
-    box-shadow: 2px 6px 85px 41px rgba(0, 0, 0, 0.274);
+    box-shadow: 2px 6px 15px rgba(19, 19, 19, 0.336);
     color: white;
     border: none;
     padding: 10px 20px;
@@ -42,6 +55,7 @@
   .home-button:hover {
     background-color: #0057b3;
   }
+  
   @media (max-width: 768px) {
     .home-container {
       padding: 20px;
@@ -63,7 +77,26 @@
     }
   }
   
-  @media (max-width: 429px) {
+  @media (max-width: 500px) and (min-width:300px) {
+    .home-container {
+      padding: 10px;
+    }
+  
+    .home-container h1 {
+      font-size: 1.5em;
+      margin-bottom: 10px;
+    }
+  
+    .home-container p {
+      font-size: 0.9em;
+      margin-bottom: 20px;
+    }
+  
+    .home-button {
+      padding: 6px 12px;
+      font-size: 0.8em;
+    }
+  }px) {
     .home-container {
       padding: 10px;
     }
