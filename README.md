@@ -5,6 +5,8 @@
 This is a simple weather application that allows users to check the current weather conditions of a location. The app uses OpenWeatherMap API to fetch weather data.
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/f55c79a2-302d-42f0-8e22-10e2bf9373fd/deploy-status)](https://app.netlify.com/sites/tenkinoko/deploys)
+![TENKI_NO_KO](https://img.shields.io/website?url=https%3A%2F%2Ftenkinoko.netlify.app%2F)
+
 
 ## Features
 
