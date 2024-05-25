@@ -90,12 +90,13 @@ const Weather_fetch = () => {
     getLocationWeather();
 
     const handleOnline = () => {
-      toast.info("You are online.😊✌️",{
+      toast.success("You are online.😊✌️",{
       position: "top-right",
       autoClose: 3000,
       hideProgressBar: false,
       pauseOnHover: true,
       draggable: true});
+      toast.error({hideProgressBar:true ,autoClose:100})
     };
 
     const handleOffline = () => {
