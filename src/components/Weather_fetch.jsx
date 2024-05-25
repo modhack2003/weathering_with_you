@@ -34,6 +34,8 @@ const Weather_fetch = () => {
   const [showInput, setShowInput] = useState(true);
   const suggestionRef = useRef();
   const [selectedSuggestionIndex, setSelectedSuggestionIndex] = useState(-1);
+  const [inputFocused, setInputFocused] = useState(false);
+
 
   const getLocationWeather = () => {
     setProgress(30);
@@ -133,23 +135,33 @@ const Weather_fetch = () => {
       return;
     }
     try {
-      const response = await fetch(`http://api.openweathermap.org/data/2.5/find?q=${query}&sort=population&cnt=10&appid=${apiKey}`);
+      const response = await fetch(`https://api.geoapify.com/v1/geocode/autocomplete?text=${query}&apiKey=718126df44da426a8b07fb1d2726b9fa`);
       if (!response.ok) {
         throw new Error(`Failed to fetch suggestions: ${response.status} (${response.statusText})`);
       }
       const data = await response.json();
-      setSuggestions(data.list);
+      setSuggestions(data.features.map(feature => ({
+        id: feature.properties.place_id,
+        name: feature.properties.city || feature.properties.name,
+        country: feature.properties.country
+      })));
       setSelectedSuggestionIndex(-1);
     } catch (error) {
       console.error("Error fetching suggestions:", error);
     }
   };
 
-  const handleInputChange = (e) => {
-    const newQuery = e.target.value;
-    setSearch(newQuery);
+ const handleInputChange = (e) => {
+  const newQuery = e.target.value;
+  setSearch(newQuery);
+  
+  // Clear suggestions when the input field is emptied
+  if (newQuery === "") {
+    setSuggestions([]);
+  } else {
     fetchSuggestions(newQuery);
-  };
+  }
+};
 
   const handleSuggestionClick = (cityName) => {
     setSearch(cityName);
@@ -193,6 +205,8 @@ const Weather_fetch = () => {
                 onChange={handleInputChange}
                 autoComplete="off"
                 onKeyDown={handleKeyPress}
+                onFocus={() => setInputFocused(true)}
+                  onBlur={() => setInputFocused(false)} 
               />
               <label className='l' htmlFor="cityName">Enter your city</label>
               <button className="Search-btn" type="submit">
@@ -201,7 +215,7 @@ const Weather_fetch = () => {
             </form>
           )}
           {suggestions.length > 0 && (
-            <div className='suggestions'>
+            <div className='suggestions' style={{ display: inputFocused ? 'flex' : 'none' }}>
               {suggestions.map((suggestion, index) => (
                 <div
                   key={suggestion.id}
@@ -209,7 +223,7 @@ const Weather_fetch = () => {
                   ref={index === 0 ? suggestionRef : null}
                   onClick={() => handleSuggestionClick(suggestion.name)}
                 >
-                  {suggestion.name}, {suggestion.sys.country}
+                  {suggestion.name}, {suggestion.country}
                 </div>
               ))}
             </div>

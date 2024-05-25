@@ -56,7 +56,7 @@
 }
 
 .cards:hover {
-  height: 100vh;
+  height: 95vh;
 }
 .getLocationBtn{
   top:1vh;
@@ -119,7 +119,7 @@ label {
 }
 
 form:focus-within label {
-  transform: translateY(-50%) translateX(-20%);
+  transform: translateY(-50%) translateX(-40%);
   transition: 1s;
   font-size: 20px;
   border: none;
@@ -133,6 +133,7 @@ form:focus-within input {
   border-radius: 0px;
   transition: 2s;
 }
+
 
 button{
   height: 70px;
@@ -160,20 +161,26 @@ button{
 }
 div.suggestions{
   position: absolute;
+  z-index: 1;
   top:13vh;
-  left: 20vh;
-  width: 50%;
-  height: max-content;
-  padding: 5px;
+  left: 27vh;
+  width: 40%;
+  height: 10vh;
+  padding: 6px;
   border-radius: 0px 0px 10px 10px ;
   border: 1px solid rgba(94, 94, 94, 0.274); 
   background-color: rgba(255, 255, 255, 0.452);
-  display: flex;
+  
   flex-direction: column;
   align-items: flex-start;
+  overflow: scroll;
 }
+div.suggestions::-webkit-scrollbar{
+  display: none;
+}
+
 .suggestion-item{
-  width: 100%;
+  width: 90%;
   height: 90%;  
   margin: 5px;
 }
@@ -327,7 +334,7 @@ div.suggestions{
 
   }
   .cards {
-    height: 60vh;
+    height:60vh;
     width: 90vw; 
     display: flex;
     justify-content: center;
@@ -398,10 +405,11 @@ div.suggestions{
   }
   div.suggestions{
     position: absolute;
+    z-index: 1;
     top:6vh;
-    left: 11vh;
-    width: 30%;
-    height: max-content;
+    left: 9vh;
+    width: 40%;
+    height: 5vh;
     padding: 3%;
     border-radius: 0px 0px 10px 10px ;
     border: 1px solid rgba(94, 94, 94, 0.274); 
@@ -410,6 +418,7 @@ div.suggestions{
     flex-direction: column;
     align-items: flex-start;
     font-size: 0.9rem;
+    overflow: scroll;
   }
   .suggestion-item{
     width: 100%;
@@ -483,8 +492,6 @@ div.suggestions{
   
   }
 
-  
-
   .weather-icon img {
     height: 90%;
     width: 100%;
@@ -492,9 +499,13 @@ div.suggestions{
 
  
 }
-@media (max-height:900px) and() {
+@media (max-height:900px)  {
   form{
-    width: 50%;
+    width: 70%;
+    
+  }
+  div.suggestions{
+    left: 15vh;
   }
   .search-icon{
     height: 40px;
