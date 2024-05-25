@@ -95,8 +95,9 @@ const Weather_fetch = () => {
       autoClose: 3000,
       hideProgressBar: false,
       pauseOnHover: true,
-      draggable: true});
-      toast.error({hideProgressBar:true ,autoClose:100})
+      draggable: true
+     });
+      toast.dismiss();
     };
 
     const handleOffline = () => {
