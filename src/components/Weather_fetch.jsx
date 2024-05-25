@@ -35,8 +35,8 @@ const Weather_fetch = () => {
   const suggestionRef = useRef();
   const [selectedSuggestionIndex, setSelectedSuggestionIndex] = useState(-1);
   const [inputFocused, setInputFocused] = useState(false);
-
-
+  const [connectionStatus, setConnectionStatus] = useState(navigator.onLine ? "online" : "offline");
+  const [showOnlineMessage, setShowOnlineMessage] = useState(false);
   const getLocationWeather = () => {
     setProgress(30);
     if (navigator.geolocation) {
@@ -45,6 +45,8 @@ const Weather_fetch = () => {
           const latitude = position.coords.latitude;
           const longitude = position.coords.longitude;
           fetchDataByCoordinates(latitude, longitude);
+          
+          
         },
         (error) => {
           console.error("Error getting user's location:", error);
@@ -88,6 +90,24 @@ const Weather_fetch = () => {
 
   useEffect(() => {
     getLocationWeather();
+
+    const handleOnline = () => {
+      setConnectionStatus("online");
+      setShowOnlineMessage(true);
+      setTimeout(() => setShowOnlineMessage(false), 3000); // Show online message for 3 seconds
+    };
+
+    const handleOffline = () => {
+      setConnectionStatus("offline");
+    };
+
+    window.addEventListener("online", handleOnline);
+    window.addEventListener("offline", handleOffline);
+
+    return () => {
+      window.removeEventListener("online", handleOnline);
+      window.removeEventListener("offline", handleOffline);
+    };
   }, []);
 
   const getWeatherIcon = (weather) => {
@@ -107,20 +127,20 @@ const Weather_fetch = () => {
     }
     setSearch(location);
     fetchData(location);
-    e.currentTarget.elements.cityName.value = "";
   };
 
   const fetchData = async (location) => {
     setProgress(0);
     try {
       const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=${apiKey}&units=metric`);
-      const data = await response.json();
-      data.wind.dir = degToCompass(data.wind.deg);
       if (!response.ok) {
         throw new Error(`Failed to fetch weather data: ${response.status} (${response.statusText})`);
       }
+      const data = await response.json();
+      data.wind.dir = degToCompass(data.wind.deg);
       setWeatherData(data);
       setShowDefaultIcon(false);
+      setSearch(""); // Clear the input field after successful fetch
     } catch (error) {
       console.error("Error fetching weather data:", error);
       setShowDefaultIcon(true);
@@ -151,17 +171,17 @@ const Weather_fetch = () => {
     }
   };
 
- const handleInputChange = (e) => {
-  const newQuery = e.target.value;
-  setSearch(newQuery);
-  
-  // Clear suggestions when the input field is emptied
-  if (newQuery === "") {
-    setSuggestions([]);
-  } else {
-    fetchSuggestions(newQuery);
-  }
-};
+  const handleInputChange = (e) => {
+    const newQuery = e.target.value;
+    setSearch(newQuery);
+    
+    // Clear suggestions when the input field is emptied
+    if (newQuery === "") {
+      setSuggestions([]);
+    } else {
+      fetchSuggestions(newQuery);
+    }
+  };
 
   const handleSuggestionClick = (cityName) => {
     setSearch(cityName);
@@ -170,8 +190,6 @@ const Weather_fetch = () => {
   };
 
   const handleKeyPress = (e) => {
-    console.log(selectedSuggestionIndex)
-    console.log(e.key)
     if (e.key === 'Enter' && selectedSuggestionIndex !== -1) {
       e.preventDefault();
       const selectedSuggestion = suggestions[selectedSuggestionIndex];
@@ -185,14 +203,20 @@ const Weather_fetch = () => {
       e.preventDefault();
       setSelectedSuggestionIndex(prevIndex => Math.min(prevIndex + 1, suggestions.length - 1));
     }
-    
   };
 
   return (
     <>
       <div className='main'>
         <LoadingBar color='#ffc107' style={{position:"absolute"}} className="LoadingBar" progress={progress} height={5} />
+        {connectionStatus === "offline" && (
+          <div className="connection-status offline">You are offline. Please check your internet connection.</div>
+        )}
+        {showOnlineMessage && (
+          <div className="connection-status online">You are online.</div>
+        )}
         <div className='cards'>
+        
           <button className="getLocationBtn" onClick={getLocationWeather}>
             <FaLocationDot className="LocationBtn" />
           </button>
@@ -206,7 +230,7 @@ const Weather_fetch = () => {
                 autoComplete="off"
                 onKeyDown={handleKeyPress}
                 onFocus={() => setInputFocused(true)}
-                  onBlur={() => setInputFocused(false)} 
+                onBlur={() => setTimeout(() => setInputFocused(false), 200)} // Delayed to allow click event to process
               />
               <label className='l' htmlFor="cityName">Enter your city</label>
               <button className="Search-btn" type="submit">
@@ -215,13 +239,13 @@ const Weather_fetch = () => {
             </form>
           )}
           {suggestions.length > 0 && (
-            <div className='suggestions' style={{ display: inputFocused ? 'flex' : 'none' }}>
+            <div className='suggestions' style={{ display: inputFocused ? 'flex' : 'none', maxHeight: '200px', overflowY: 'scroll' }}>
               {suggestions.map((suggestion, index) => (
                 <div
                   key={suggestion.id}
                   className={`suggestion-item ${index === selectedSuggestionIndex ? 'selected' : ''}`}
                   ref={index === 0 ? suggestionRef : null}
-                  onClick={() => handleSuggestionClick(suggestion.name)}
+                  onMouseDown={() => handleSuggestionClick(suggestion.name)}
                 >
                   {suggestion.name}, {suggestion.country}
                 </div>
