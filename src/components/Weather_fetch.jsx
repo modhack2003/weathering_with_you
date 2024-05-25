@@ -1,4 +1,4 @@
-import  { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import "./Weather_fetch.css";
 import { IoSearch } from "react-icons/io5";
 import { FaLocationDot } from "react-icons/fa6";
@@ -30,7 +30,10 @@ const Weather_fetch = () => {
   const [showDefaultIcon, setShowDefaultIcon] = useState(true);
   const [progress, setProgress] = useState(0);
   const [search, setSearch] = useState("");
+  const [suggestions, setSuggestions] = useState([]);
   const [showInput, setShowInput] = useState(true);
+  const suggestionRef = useRef();
+  const [selectedSuggestionIndex, setSelectedSuggestionIndex] = useState(-1);
 
   const getLocationWeather = () => {
     setProgress(30);
@@ -124,34 +127,102 @@ const Weather_fetch = () => {
     }
   };
 
+  const fetchSuggestions = async (query) => {
+    if (query.length === 0) {
+      setSuggestions([]);
+      return;
+    }
+    try {
+      const response = await fetch(`http://api.openweathermap.org/data/2.5/find?q=${query}&sort=population&cnt=10&appid=${apiKey}`);
+      if (!response.ok) {
+        throw new Error(`Failed to fetch suggestions: ${response.status} (${response.statusText})`);
+      }
+      const data = await response.json();
+      setSuggestions(data.list);
+      setSelectedSuggestionIndex(-1);
+    } catch (error) {
+      console.error("Error fetching suggestions:", error);
+    }
+  };
+
+  const handleInputChange = (e) => {
+    const newQuery = e.target.value;
+    setSearch(newQuery);
+    fetchSuggestions(newQuery);
+  };
+
+  const handleSuggestionClick = (cityName) => {
+    setSearch(cityName);
+    setSuggestions([]);
+    fetchData(cityName);
+  };
+
+  const handleKeyPress = (e) => {
+    console.log(selectedSuggestionIndex)
+    console.log(e.key)
+    if (e.key === 'Enter' && selectedSuggestionIndex !== -1) {
+      e.preventDefault();
+      const selectedSuggestion = suggestions[selectedSuggestionIndex];
+      setSearch(selectedSuggestion.name);
+      setSuggestions([]);
+      fetchData(selectedSuggestion.name);
+    } else if (e.key === 'ArrowUp') {
+      e.preventDefault();
+      setSelectedSuggestionIndex(prevIndex => Math.max(prevIndex - 1, 0));
+    } else if (e.key === 'ArrowDown') {
+      e.preventDefault();
+      setSelectedSuggestionIndex(prevIndex => Math.min(prevIndex + 1, suggestions.length - 1));
+    }
+    
+  };
+
   return (
     <>
       <div className='main'>
-      
-      <LoadingBar color='#ffc107' style={{position:"absolute"}} className="LoadingBar" progress={progress} height={5} />
-        
+        <LoadingBar color='#ffc107' style={{position:"absolute"}} className="LoadingBar" progress={progress} height={5} />
         <div className='cards'>
           <button className="getLocationBtn" onClick={getLocationWeather}>
             <FaLocationDot className="LocationBtn" />
           </button>
           {showInput && (
             <form onSubmit={handleSearch}>
-              <input className='cityName' id='cityName' />
+              <input
+                className='cityName'
+                id='cityName'
+                value={search}
+                onChange={handleInputChange}
+                autoComplete="off"
+                onKeyDown={handleKeyPress}
+              />
               <label className='l' htmlFor="cityName">Enter your city</label>
               <button className="Search-btn" type="submit">
                 <IoSearch className='search-icon' />
               </button>
             </form>
           )}
+          {suggestions.length > 0 && (
+            <div className='suggestions'>
+              {suggestions.map((suggestion, index) => (
+                <div
+                  key={suggestion.id}
+                  className={`suggestion-item ${index === selectedSuggestionIndex ? 'selected' : ''}`}
+                  ref={index === 0 ? suggestionRef : null}
+                  onClick={() => handleSuggestionClick(suggestion.name)}
+                >
+                  {suggestion.name}, {suggestion.sys.country}
+                </div>
+              ))}
+            </div>
+          )}
           <div className='result-box'>
             {(weatherData || showDefaultIcon) && (
               <>
                 <div className='weather-icon'><img src={getWeatherIcon(weatherData?.weather)} alt="Weather icon" /></div>
                 <div className='temp'>{weatherData?.main && Math.round(weatherData.main.temp) + "°C"}</div>
-                <div className='feels_like'>{weatherData?.main && "Feels like" + " " + Math.round(weatherData.main.feels_like) + "°C"}</div>
+                <div className='feels_like'>{weatherData?.main && "Feels like " + Math.round(weatherData.main.feels_like) + "°C"}</div>
                 <div className="Wind_icon">{weatherData && <img src={WindIcon} alt="Wind icon" />}</div>
-                <div className='wind_speed'>{weatherData?.wind && "Wind " + " " + Math.round(weatherData.wind.speed) + "km/h"}</div>
-                <div className='wind_direction'>{weatherData?.wind && "Direction" + " " + weatherData.wind.dir}</div>
+                <div className='wind_speed'>{weatherData?.wind && "Wind " + Math.round(weatherData.wind.speed) + " km/h"}</div>
+                <div className='wind_direction'>{weatherData?.wind && "Direction " + weatherData.wind.dir}</div>
                 <div className='location'>{weatherData?.name}</div>
                 <div className='weather-condition'>{weatherData?.weather && weatherData.weather[0]?.main}</div>
               </>
