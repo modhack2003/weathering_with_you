@@ -80,7 +80,7 @@
 
 form {
   background-color: transparent;
-  height: 10vh;
+  height: 7vh;
   width:70vh;
   border-radius: 20px;
   display: flex;
@@ -199,6 +199,12 @@ div.suggestions::-webkit-scrollbar{
   width: 80vh; 
   
   overflow: hidden;
+}
+div.default-icon{
+  display: flex;
+  align-items: start;
+  height: 80%;
+  align-self: start;
 }
 
 .temp {
@@ -437,6 +443,11 @@ div.suggestions::-webkit-scrollbar{
     top: 10vh;
    
   }
+  div.default-icon{
+    align-self: start; 
+    height: 70%;
+    width: 80%;
+  }
 
   .weather-icon, .temp, .feels_like, .Wind_icon, .wind_speed, .wind_direction, .location, .weather-condition {
     flex:1 1 40%; 
@@ -512,6 +523,9 @@ div.suggestions::-webkit-scrollbar{
   }
   div.suggestions{
     left: 15vh;
+  }
+  div.default-icon{
+    height: 60%;
   }
   .search-icon{
     height: 40px;

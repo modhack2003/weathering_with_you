@@ -3,6 +3,8 @@ import "./Weather_fetch.css";
 import { IoSearch } from "react-icons/io5";
 import { FaLocationDot } from "react-icons/fa6";
 import LoadingBar from 'react-top-loading-bar';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import defaultIcon from "../assets/default.png";
 import sunIcon from "../assets/sun.png";
 import cloudIcon from "../assets/cloudy.png";
@@ -35,8 +37,6 @@ const Weather_fetch = () => {
   const suggestionRef = useRef();
   const [selectedSuggestionIndex, setSelectedSuggestionIndex] = useState(-1);
   const [inputFocused, setInputFocused] = useState(false);
-  const [connectionStatus, setConnectionStatus] = useState(navigator.onLine ? "online" : "offline");
-  const [showOnlineMessage, setShowOnlineMessage] = useState(false);
   const getLocationWeather = () => {
     setProgress(30);
     if (navigator.geolocation) {
@@ -45,8 +45,6 @@ const Weather_fetch = () => {
           const latitude = position.coords.latitude;
           const longitude = position.coords.longitude;
           fetchDataByCoordinates(latitude, longitude);
-          
-          
         },
         (error) => {
           console.error("Error getting user's location:", error);
@@ -92,13 +90,11 @@ const Weather_fetch = () => {
     getLocationWeather();
 
     const handleOnline = () => {
-      setConnectionStatus("online");
-      setShowOnlineMessage(true);
-      setTimeout(() => setShowOnlineMessage(false), 3000); // Show online message for 3 seconds
+      toast.info("You are online.");
     };
 
     const handleOffline = () => {
-      setConnectionStatus("offline");
+      toast.error("You are offline. Please check your internet connection.");
     };
 
     window.addEventListener("online", handleOnline);
@@ -207,16 +203,10 @@ const Weather_fetch = () => {
 
   return (
     <>
+      <ToastContainer />
       <div className='main'>
         <LoadingBar color='#ffc107' style={{position:"absolute"}} className="LoadingBar" progress={progress} height={5} />
-        {connectionStatus === "offline" && (
-          <div className="connection-status offline">You are offline. Please check your internet connection.</div>
-        )}
-        {showOnlineMessage && (
-          <div className="connection-status online">You are online.</div>
-        )}
         <div className='cards'>
-        
           <button className="getLocationBtn" onClick={getLocationWeather}>
             <FaLocationDot className="LocationBtn" />
           </button>
@@ -255,14 +245,21 @@ const Weather_fetch = () => {
           <div className='result-box'>
             {(weatherData || showDefaultIcon) && (
               <>
-                <div className='weather-icon'><img src={getWeatherIcon(weatherData?.weather)} alt="Weather icon" /></div>
-                <div className='temp'>{weatherData?.main && Math.round(weatherData.main.temp) + "°C"}</div>
-                <div className='feels_like'>{weatherData?.main && "Feels like " + Math.round(weatherData.main.feels_like) + "°C"}</div>
-                <div className="Wind_icon">{weatherData && <img src={WindIcon} alt="Wind icon" />}</div>
-                <div className='wind_speed'>{weatherData?.wind && "Wind " + Math.round(weatherData.wind.speed) + " km/h"}</div>
-                <div className='wind_direction'>{weatherData?.wind && "Direction " + weatherData.wind.dir}</div>
-                <div className='location'>{weatherData?.name}</div>
-                <div className='weather-condition'>{weatherData?.weather && weatherData.weather[0]?.main}</div>
+                {!showDefaultIcon && (
+                  <>
+                    <div className='weather-icon'><img src={getWeatherIcon(weatherData?.weather)} alt="Weather icon" /></div>
+                    <div className='temp'>{weatherData?.main && Math.round(weatherData.main.temp) + "°C"}</div>
+                    <div className='feels_like'>{weatherData?.main && "Feels like " + Math.round(weatherData.main.feels_like) + "°C"}</div>
+                    <div className="Wind_icon">{weatherData && <img src={WindIcon} alt="Wind icon" />}</div>
+                    <div className='wind_speed'>{weatherData?.wind && "Wind " + Math.round(weatherData.wind.speed) + " km/h"}</div>
+                    <div className='wind_direction'>{weatherData?.wind && "Direction " + weatherData.wind.dir}</div>
+                    <div className='location'>{weatherData?.name}</div>
+                    <div className='weather-condition'>{weatherData?.weather && weatherData.weather[0]?.main}</div>
+                  </>
+                )}
+                {showDefaultIcon && (
+                  <div className='weather-icon default-icon'><img src={defaultIcon} alt="welcome " /></div>
+                )}
               </>
             )}
           </div>
@@ -273,3 +270,4 @@ const Weather_fetch = () => {
 };
 
 export default Weather_fetch;
+
