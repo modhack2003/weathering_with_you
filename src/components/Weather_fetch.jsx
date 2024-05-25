@@ -90,14 +90,16 @@ const Weather_fetch = () => {
     getLocationWeather();
 
     const handleOnline = () => {
-      toast.success("You are online.😊✌️",{
-      position: "top-right",
-      autoClose: 3000,
-      hideProgressBar: false,
-      pauseOnHover: true,
-      draggable: true
-     });
       toast.dismiss();
+    setTimeout(() => {
+      toast.success("You are online.😊✌️", {
+        position: "top-right",
+        autoClose: 3000,
+        hideProgressBar: false,
+        pauseOnHover: true,
+        draggable: true
+      });
+    }, 100);
     };
 
     const handleOffline = () => {
