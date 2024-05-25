@@ -9,7 +9,7 @@
 #root {
   background: rgb(0, 255, 236);
   background: radial-gradient(circle, rgba(0, 255, 236, 1) 20%, rgba(142, 86, 205, 1) 83%);
-  height: 140vh;
+  height: 150vh;
   
 }
 
@@ -362,8 +362,9 @@ div.suggestions::-webkit-scrollbar{
     top: 1vh;
     left: 13vw;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
+    flex-direction: row;
     width: 80%;
     height: 6vh;
     padding: 2px;
@@ -371,36 +372,36 @@ div.suggestions::-webkit-scrollbar{
   
 
   input {
-    position: absolute;
+    
     left: 8vw;
     height: 30px;
     width: 40vw;
-    font-size: 1.5rem;
+    font-size: 1.9rem;
     border: 3px solid rgb(19, 20, 20);
     padding-left: 3px;
     flex-grow: 1;
   }
 
   label {
-    left: 10vw;
+    left: 5vw;
     height: 30px;
     width: 25vw;
-    font-size: 0.7rem;
+    font-size: 0.8rem;
   }
 
   form:focus-within label {
-    font-size: 0.6rem;
-    transform: translateY(-60%) translateX(-50%);
+    font-size: 0.7rem;
+    transform: translateY(-60%) translateX(-30%);
   }
 
   form:focus-within input {
-    font-size: 1rem;
+    font-size: 1.7rem;
   }
   
 
   button {
    height: 45px;
-   position: absolute;
+
    right: 6vw;
   }
   div.suggestions{
@@ -499,10 +500,14 @@ div.suggestions::-webkit-scrollbar{
 
  
 }
-@media (max-height:900px)  {
+@media (max-height:750px) and (min-height: 950px)  {
+ 
   form{
     width: 70%;
     
+  }
+  input{
+    width: 60%;
   }
   div.suggestions{
     left: 15vh;
