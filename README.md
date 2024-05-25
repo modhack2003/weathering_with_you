@@ -4,6 +4,8 @@
 
 This is a simple weather application that allows users to check the current weather conditions of a location. The app uses OpenWeatherMap API to fetch weather data.
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/f55c79a2-302d-42f0-8e22-10e2bf9373fd/deploy-status)](https://app.netlify.com/sites/tenkinoko/deploys)
+
 ## Features
 
 - **Current Weather**: Display the current temperature, weather conditions, and other relevant information for a specified location.
@@ -47,7 +49,7 @@ To run this application locally, follow these steps:
 
 ## Screenshots
 
-![WeatherApp Screenshot](/path/to/screenshot.png)
+![WeatherApp Screenshot](./public/Screenshot%202024-05-25%20183714.png)
 
 ## Contributing
 
