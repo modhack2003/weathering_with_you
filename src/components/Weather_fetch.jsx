@@ -90,11 +90,22 @@ const Weather_fetch = () => {
     getLocationWeather();
 
     const handleOnline = () => {
-      toast.info("You are online.");
+      toast.info("You are online.😊✌️",{
+      position: "top-right",
+      autoClose: 3000,
+      hideProgressBar: false,
+      pauseOnHover: true,
+      draggable: true});
     };
 
     const handleOffline = () => {
-      toast.error("You are offline. Please check your internet connection.");
+      toast.error("You are offline. Please check your internet connection ☹️.",{
+        position: "top-right",
+        autoClose:false,
+        hideProgressBar: false,
+        pauseOnHover: true,
+        draggable: true
+      });
     };
 
     window.addEventListener("online", handleOnline);
